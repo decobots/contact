@@ -14,7 +14,8 @@ function init(){
      document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
-// create a new contact object
+/*	
+	// create a new contact object
 	var contact = navigator.contacts.create();
 	contact.displayName = "Plumber";
 	contact.nickname = "Plumber";            // specify both to support all devices
@@ -37,12 +38,12 @@ function onError(contactError) {
     alert("Error = " + contactError.code);
 };
 	
-	
-/*	alert ("hello");
+*/	
+	alert ("hello");
 	// find all contacts with 'Bob' in any name field
   // find all contacts with 'Bob' in any name field
 var options      = new ContactFindOptions();
-options.filter   = "AppleLab";
+options.filter   = "Jane";
 options.multiple = true;
 var fields       = ["*"];
 navigator.contacts.find(fields, onSuccess, onError, options);
@@ -55,7 +56,7 @@ function onError(contactError) {
     alert('onError!');
 };
 
-*/
+
 
 
 </script>        
