@@ -52,7 +52,7 @@ function onSuccess(contacts) {
     document.getElementById("cont").innerHTML="%%%%%%";
     console.log(contacts);
     for (var a in contacts){
-    	document.getElementById("cont").innerHTML+=contacts.a;
+    	document.getElementById("cont").innerHTML+=a+"  "+contacts[a];
     }
 };
 
