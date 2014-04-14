@@ -34,33 +34,19 @@ function onSuccess1(contacts) {
     }
 }
 function add(){
-	alert(document.getElementById("text3"));        
-	alert(document.getElementById("text1"));
-	alert(document.getElementById("text2"));
-var contact = navigator.contacts.create();
-contact.displayName = "Plumber";
-contact.nickname = "Plumber";            // specify both to support all devices
 
-// populate some fields
-var name = new ContactName();
-name.givenName = "Jane";
-name.familyName = "Doe";
-contact.name = name;
-
-// save to device
-contact.save(onSuccess2,onError);/*
 	// create a new contact object
 	var contact = navigator.contacts.create();
 //	contact.displayName = "Plumber";
-	contact.nickname = document.getElementById("text3");        
+	contact.nickname = document.getElementById("text3").value;        
 	var name = new ContactName();
-	name.givenName = document.getElementById("text1");
-	name.familyName = document.getElementById("text2");
+	name.givenName = document.getElementById("text1").value;
+	name.familyName = document.getElementById("text2").value;
 	contact.name = name;
-//	contact.phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel"), false);
+	contact.phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel").value, false);
 	// save to device
 	contact.save(onSuccess2,onError);
-	*/
+	
 }
 
 function onSuccess2(contact) {
