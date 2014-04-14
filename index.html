@@ -32,7 +32,7 @@ function onSuccess1(contacts) {
     	document.getElementById("cont").innerHTML+=""+contacts[i].displayName;
     	document.getElementById("cont").innerHTML+="<br>";
     }
-};
+}
 function add(){
 	
 	// create a new contact object
@@ -45,18 +45,18 @@ function add(){
 	name.givenName = document.getElementById("text1");
 	name.familyName = document.getElementById("text2");
 	contact.name = name;
-	contact.phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel"), false);
+//	contact.phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel"), false);
 	// save to device
 	contact.save(onSuccess2,onError);
 }
 
 function onSuccess2(contact) {
     alert("Save Success");
-};
+}
 
 function onError(contactError) {
     alert("Error = " + contactError.code);
-};
+}
 	
 
 </script>        
