@@ -40,12 +40,11 @@ function onError(contactError) {
 	
 */	
 	alert ("hello");
-	// find all contacts with 'Bob' in any name field
-  // find all contacts with 'Bob' in any name field
+
 var options      = new ContactFindOptions();
-//options.filter   = "Jane";
+options.filter   = "f";
 options.multiple = true;
-var fields       = ["displayName", "name"];
+var fields       = ["*"];
 navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
