@@ -49,7 +49,7 @@ var fields       = ["displayName", "name"];
 navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
-    alert('Found ' + navigator.contacts.length + ""+ navigator.contacts);
+    alert('Found ' +contacts+""+ navigator.contacts.length + ""+ navigator.contacts);
 };
 
 function onError(contactError) {
