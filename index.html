@@ -14,7 +14,8 @@ function init(){
      document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
-	   	document.getElementById("But1").onclick=photo;
+	document.getElementById("But1").onclick=list;
+}
 /*	
 	// create a new contact object
 	var contact = navigator.contacts.create();
@@ -39,29 +40,26 @@ function onError(contactError) {
     alert("Error = " + contactError.code);
 };
 	
-*/	
-	alert ("hello");
+*/
+function list(){
 
-var options      = new ContactFindOptions();
-options.filter   = "";
-options.multiple = true;
-var fields       = ["displayName", "name"];//["*"];
-navigator.contacts.find(fields, onSuccess, onError, options);
+	var options      = new ContactFindOptions();
+	options.filter   = "";
+	options.multiple = true;
+	var fields       = ["displayName", "name"];//["*"];
+	navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
-    document.getElementById("cont").innerHTML="%%%%%%";
-    for (var a in contacts){
+    document.getElementById("cont").innerHTML="";
+    for (var i=0;i<contacts.length;i++){
+    	document.getElementById("cont").innerHTML+=""+contacts[a].displayName;
     	document.getElementById("cont").innerHTML+="<br>";
-    	document.getElementById("cont").innerHTML+=" "+contacts[a].displayName;
-
     }
 };
 
 function onError(contactError) {
     alert('onError!');
 };
-
-
 
 
 </script>        
@@ -75,10 +73,20 @@ function onError(contactError) {
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-	<div data-role="navBar">
-	<button id="But1">Имеющиеся контакты</button>
-	</div>
-	<div id="cont"></div>
+		<div data-role="navиar">
+			<button id="But1">Имеющиеся контакты</button>
+		</div>
+		<div id="cont"></div>
+		<p>Add new</p>
+		<label for="text1">Имя:</label>
+		<input type="text" name="text-basic" id="text1" value="">
+		<label for="text2">Фамилия:</label>
+		<input type="text" name="text-basic" id="text2" value="">
+		<label for="text1">Кличка:</label>
+		<input type="text" name="text-basic" id="text1" value="">
+		<label for="tel">Телефон:</label>
+		<input type="tel" name="tel" id="tel" value="">
+		
 	</div><!-- /content -->
 
 	<div data-role="footer">
