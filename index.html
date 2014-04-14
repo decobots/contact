@@ -29,7 +29,7 @@ function list(){
 function onSuccess1(contacts) {
     document.getElementById("cont").innerHTML="";
     for (var i=0;i<contacts.length;i++){
-    	document.getElementById("cont").innerHTML+=""+contacts[a].displayName;
+    	document.getElementById("cont").innerHTML+=""+contacts[i].displayName;
     	document.getElementById("cont").innerHTML+="<br>";
     }
 };
