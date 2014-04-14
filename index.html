@@ -14,6 +14,7 @@ function init(){
      document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
+	   	document.getElementById("But1").onclick=photo;
 /*	
 	// create a new contact object
 	var contact = navigator.contacts.create();
@@ -74,7 +75,10 @@ function onError(contactError) {
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-       <div id="cont"></div>
+	<div data-role="navBar">
+	<button id="But1">Имеющиеся контакты</button>
+	</div>
+	<div id="cont"></div>
 	</div><!-- /content -->
 
 	<div data-role="footer">
