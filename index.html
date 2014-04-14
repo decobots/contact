@@ -50,10 +50,10 @@ navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
     alert('Found ' +contacts);
-    document.detElementById("cont").innerHTML="%%%%%%";
+    document.getElementById("cont").innerHTML="%%%%%%";
     console.log(contacts);
     for (var a in contacts){
-    	document.detElementById("cont").innerHTML+=contacts.a;
+    	document.getElementById("cont").innerHTML+=contacts.a;
     }
 };
 
