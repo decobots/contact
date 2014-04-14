@@ -38,12 +38,12 @@ function add(){
 	// create a new contact object
 	var contact = navigator.contacts.create();
 	contact.displayName = "Plumber";
-	contact.nickname = "Plumber";            // specify both to support all devices
+	contact.nickname = document.getElementById("text3");            // specify both to support all devices
 	
 	// populate some fields
 	var name = new ContactName();
-	name.givenName = "Jane";
-	name.familyName = "Doe";
+	name.givenName = document.getElementById("text1");
+	name.familyName = document.getElementById("text2");
 	contact.name = name;
 	
 	// save to device
