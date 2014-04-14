@@ -16,11 +16,12 @@ function init(){
 function onDeviceReady(){
 	alert ("hello");
 	// find all contacts with 'Bob' in any name field
-  var options      = new ContactFindOptions();
-  options.filter   = "";
-  options.multiple = true;
-  var fields       = ["id"];
-  navigator.contacts.find(fields, onSuccess, onError, options);
+  // find all contacts with 'Bob' in any name field
+var options      = new ContactFindOptions();
+options.filter   = "Гарри";
+options.multiple = true;
+var fields       = ["displayName", "name"];
+navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
     alert('Found ' + navigator.contacts.length + ' navigator.contacts.');
@@ -29,6 +30,7 @@ function onSuccess(contacts) {
 function onError(contactError) {
     alert('onError!');
 };
+
 
 
 
