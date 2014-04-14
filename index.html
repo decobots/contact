@@ -14,13 +14,37 @@ function init(){
      document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
-	alert ("hello");
+// create a new contact object
+	var contact = navigator.contacts.create();
+	contact.displayName = "Plumber";
+	contact.nickname = "Plumber";            // specify both to support all devices
+	
+	// populate some fields
+	var name = new ContactName();
+	name.givenName = "Jane";
+	name.familyName = "Doe";
+	contact.name = name;
+	
+	// save to device
+	contact.save(onSuccess,onError);
+}
+
+function onSuccess(contact) {
+    alert("Save Success");
+};
+
+function onError(contactError) {
+    alert("Error = " + contactError.code);
+};
+	
+	
+/*	alert ("hello");
 	// find all contacts with 'Bob' in any name field
   // find all contacts with 'Bob' in any name field
 var options      = new ContactFindOptions();
-options.filter   = "Поттер";
+options.filter   = "AppleLab";
 options.multiple = true;
-var fields       = ["displayName", "name"];
+var fields       = ["*"];
 navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
@@ -31,7 +55,7 @@ function onError(contactError) {
     alert('onError!');
 };
 
-
+*/
 
 
 </script>        
