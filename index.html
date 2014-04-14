@@ -20,7 +20,7 @@ function onDeviceReady(){
   options.filter   = "";
   options.multiple = true;
   var fields       = ["*"];
-  navigator.contacts.find(fields, onSuccess, onError, options);
+  navigator.contacts.find(fields, onSuccess, onError);
 }
 function onSuccess(contacts) {
     alert('Found ' + navigator.contacts.length + ' navigator.contacts.');
