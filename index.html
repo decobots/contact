@@ -17,31 +17,7 @@ function onDeviceReady(){
 	document.getElementById("But1").onclick=list;
 	document.getElementById("But1").onclick=add;
 }
-/*	
-	// create a new contact object
-	var contact = navigator.contacts.create();
-	contact.displayName = "Plumber";
-	contact.nickname = "Plumber";            // specify both to support all devices
-	
-	// populate some fields
-	var name = new ContactName();
-	name.givenName = "Jane";
-	name.familyName = "Doe";
-	contact.name = name;
-	
-	// save to device
-	contact.save(onSuccess,onError);
-}
 
-function onSuccess(contact) {
-    alert("Save Success");
-};
-
-function onError(contactError) {
-    alert("Error = " + contactError.code);
-};
-	
-*/
 function list(){
 
 	var options      = new ContactFindOptions();
@@ -57,6 +33,31 @@ function onSuccess1(contacts) {
     	document.getElementById("cont").innerHTML+="<br>";
     }
 };
+function add(){
+	
+	// create a new contact object
+	var contact = navigator.contacts.create();
+	contact.displayName = "Plumber";
+	contact.nickname = "Plumber";            // specify both to support all devices
+	
+	// populate some fields
+	var name = new ContactName();
+	name.givenName = "Jane";
+	name.familyName = "Doe";
+	contact.name = name;
+	
+	// save to device
+	contact.save(onSuccess2,onError);
+}
+
+function onSuccess2(contact) {
+    alert("Save Success");
+};
+
+function onError(contactError) {
+    alert("Error = " + contactError.code);
+};
+	
 
 function onError(contactError) {
     alert('onError!');
