@@ -48,14 +48,11 @@ var fields       = ["displayName", "name"];//["*"];
 navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
-    alert('Found ' +contacts);
     document.getElementById("cont").innerHTML="%%%%%%";
-    console.log(contacts);
     for (var a in contacts){
     	document.getElementById("cont").innerHTML+="<br>";
-    	for (var b in contacts[a]){
-    		document.getElementById("cont").innerHTML+="  "+contacts[a][b];
-    	}
+    	document.getElementById("cont").innerHTML+=" "+contacts[a].displayName;
+
     }
 };
 
