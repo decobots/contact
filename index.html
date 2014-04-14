@@ -37,7 +37,7 @@ function add(){
 	
 	// create a new contact object
 	var contact = navigator.contacts.create();
-	contact.displayName = "Plumber";
+//	contact.displayName = "Plumber";
 	contact.nickname = document.getElementById("text3");            // specify both to support all devices
 	
 	// populate some fields
@@ -45,7 +45,7 @@ function add(){
 	name.givenName = document.getElementById("text1");
 	name.familyName = document.getElementById("text2");
 	contact.name = name;
-	
+	contact.phoneNumbers[0]=new ContactField('work', '212-555-1234', false);
 	// save to device
 	contact.save(onSuccess2,onError);
 }
