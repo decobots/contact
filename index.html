@@ -50,7 +50,11 @@ navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
     alert('Found ' +contacts);
+    document.detElementById("cont").innerHTML="";
     console.log(contacts);
+    for (var a in contacts){
+    	document.detElementById("cont").innerHTML+=contacts[i];
+    }
 };
 
 function onError(contactError) {
@@ -71,7 +75,7 @@ function onError(contactError) {
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-       <div id="contacts"></div>
+       <div id="cont"></div>
 	</div><!-- /content -->
 
 	<div data-role="footer">
