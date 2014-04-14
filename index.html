@@ -15,6 +15,7 @@ function init(){
 }
 function onDeviceReady(){
 	document.getElementById("But1").onclick=list;
+	document.getElementById("But1").onclick=add;
 }
 /*	
 	// create a new contact object
@@ -47,9 +48,9 @@ function list(){
 	options.filter   = "";
 	options.multiple = true;
 	var fields       = ["displayName", "name"];//["*"];
-	navigator.contacts.find(fields, onSuccess, onError, options);
+	navigator.contacts.find(fields, onSuccess1, onError, options);
 }
-function onSuccess(contacts) {
+function onSuccess1(contacts) {
     document.getElementById("cont").innerHTML="";
     for (var i=0;i<contacts.length;i++){
     	document.getElementById("cont").innerHTML+=""+contacts[a].displayName;
@@ -73,10 +74,12 @@ function onError(contactError) {
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
+		<div id="cont"></div>
 		<div data-role="navиar">
 			<button id="But1">Имеющиеся контакты</button>
+			<button id="But1" data-icon="">Добавить контакт</button>
 		</div>
-		<div id="cont"></div>
+		
 		<p>Add new</p>
 		<label for="text1">Имя:</label>
 		<input type="text" name="text-basic" id="text1" value="">
