@@ -42,9 +42,9 @@ function onError(contactError) {
 	alert ("hello");
 
 var options      = new ContactFindOptions();
-options.filter   = "f";
+options.filter   = "";
 options.multiple = true;
-var fields       = ["*"];
+var fields       = ["displayName", "name"];//["*"];
 navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
