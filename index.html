@@ -17,9 +17,9 @@ function onDeviceReady(){
 	alert ("hello");
 	// find all contacts with 'Bob' in any name field
   var options      = new ContactFindOptions();
-  //options.filter   = "";
+  options.filter   = "";
   options.multiple = true;
-  var fields       = ["*"];
+  var fields       = ["id"];
   navigator.contacts.find(fields, onSuccess, onError, options);
 }
 function onSuccess(contacts) {
