@@ -34,13 +34,11 @@ function onSuccess1(contacts) {
     }
 }
 function add(){
-	
+	alert("add");
 	// create a new contact object
 	var contact = navigator.contacts.create();
 //	contact.displayName = "Plumber";
-	contact.nickname = document.getElementById("text3");            // specify both to support all devices
-	
-	// populate some fields
+	contact.nickname = document.getElementById("text3");        
 	var name = new ContactName();
 	name.givenName = document.getElementById("text1");
 	name.familyName = document.getElementById("text2");
