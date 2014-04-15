@@ -56,7 +56,7 @@ function add(){
 }
 function dell(){
 	document.getElementById("cont2").innerHTML="";
-	navigator.notification.confirm('Удалить контакт?', function(){CONTACTS[1].remove(dell,onError));
+//	navigator.notification.confirm('Удалить контакт?', function(){CONTACTS[1].remove(dell,onError));
     for (var i=0;i<CONTACTS.length;i++){
     	document.getElementById("cont2").innerHTML+="<li onclick='alert('no');navigator.notification.confirm('Удалить контакт?', function(){CONTACTS["+i+"].remove(dell,onError);}, 'Внимание', ['Да','Нет']);'>"+CONTACTS[i].name.formatted+"</li>";
     //	document.getElementById("cont").innerHTML+="<br>";
