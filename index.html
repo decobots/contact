@@ -14,20 +14,25 @@ function init(){
      document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
-	document.getElementById("But1").onclick=list;
-	document.getElementById("But2").onclick=add;
-	document.getElementById("But3").onclick=dell;
+	document.getElementById("But1").addEventListener('click', function() { list("view"); }, false);
+	document.getElementById("But2").addEventListener('click', function() { add(); }, false);
+	document.getElementById("But3").addEventListener('click', function() { list("dell"); }, false);
 }
 
-function list(){
+function list(param){
 
 	var options      = new ContactFindOptions();
 	options.filter   = "";
 	options.multiple = true;
 	var fields       = ["displayName", "name"];//["*"];
-	navigator.contacts.find(fields, onSuccess1, onError, options);
+	if(param=="view"){
+		navigator.contacts.find(fields, view, onError, options);
+	}
+	if(param=="dell"){
+		navigator.contacts.find(fields, dell, onError, options);
+	}
 }
-function onSuccess1(contacts) {
+function view(contacts) {
 	CONTACTS=contacts;
 	document.getElementById("cont").innerHTML="";
 	for (var i=0;i<contacts.length;i++){
@@ -54,16 +59,17 @@ function add(){
 	contact.save(onSuccess2,onError);
 	
 }
-function dell(){
+function dell(contacts){
+	CONTACTS=contacts;
 	document.getElementById("cont2").innerHTML="";
-    for (var i=0;i<CONTACTS.length;i++){
-    	document.getElementById("cont2").innerHTML+="<li onclick='dell2("+i+")'>"+CONTACTS[i].name.formatted+"</li>";
-    }
-    $( "#cont2" ).listview( "refresh" );
+	    for (var i=0;i<CONTACTS.length;i++){
+	    	document.getElementById("cont2").innerHTML+="<li onclick='dell2("+i+")'>"+CONTACTS[i].name.formatted+"</li>";
+	    }
+	    $( "#cont2" ).listview( "refresh" );
 }
 
 function dell2(i){
-	navigator.notification.confirm('Удалить контакт?', function(){CONTACTS[i].remove(dell,onError);}, 'Внимание', ['Да','Нет']);
+	navigator.notification.confirm('Удалить контакт?', function(){CONTACTS[i].remove(function() { list("dell"); },onError);}, 'Внимание', ['Да','Нет']);
 }
 
 function onSuccess2(contact) {
