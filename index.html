@@ -16,6 +16,7 @@ function init(){
 function onDeviceReady(){
 	document.getElementById("But1").onclick=list;
 	document.getElementById("But2").onclick=add;
+	document.getElementById("But3").onclick=dell;
 }
 
 function list(){
@@ -27,12 +28,14 @@ function list(){
 	navigator.contacts.find(fields, onSuccess1, onError, options);
 }
 function onSuccess1(contacts) {
-    document.getElementById("cont").innerHTML="";
-    for (var i=0;i<contacts.length;i++){
-    	document.getElementById("cont").innerHTML+="<li>"+contacts[i].name.formatted+"</li>";
-    //	document.getElementById("cont").innerHTML+="<br>";
-    }
+	CONTACTS=contacts;
+	document.getElementById("cont").innerHTML="";
+	for (var i=0;i<contacts.length;i++){
+		document.getElementById("cont").innerHTML+="<li>"+contacts[i].name.formatted+"</li>";
+	    //	document.getElementById("cont").innerHTML+="<br>";
+	}
 }
+var CONTACTS;
 function add(){
 
 	// create a new contact object
@@ -50,6 +53,15 @@ function add(){
 	contact.save(onSuccess2,onError);
 	
 }
+function dell(){
+	document.getElementById("cont").innerHTML="";
+    for (var i=0;i<CONTACTS.length;i++){
+    	document.getElementById("cont").innerHTML+="<li onclick='navigator.notification.confirm('Удалить контакт?', function(){CONTACTS["+i+"].remove(dell,onError);}, 'Внимание, ['Да','Нет']);'>"+CONTACTS[i].name.formatted+"</li>";
+    //	document.getElementById("cont").innerHTML+="<br>";
+    }
+}
+
+
 
 function onSuccess2(contact) {
     alert("Save Success");
@@ -88,11 +100,14 @@ function onError(contactError) {
 			<input type="text" name="text-basic" id="text3" value="">
 			<label for="tel">Телефон:</label>
 			<input type="tel" name="tel" id="tel" value="">
-			<button id="But2" class="ui-icon-plus">Добавить контакт</button>
+			<button id="But2" data-icon="plus">Добавить контакт</button>
 		    </div>
 		    <div data-role="collapsible" data-collapsed-icon="delete">
 		        <h3>Удалить</h3>
-		   
+		   	<ul data-role="listview"id="cont2">
+		        </ul>
+		        //<button id="But3" data-icon="delete">Добавить контакт</button>
+		    </div>
 		    </div>
 		</div>
 	
