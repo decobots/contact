@@ -57,7 +57,7 @@ function add(){
 function dell(){
 	document.getElementById("cont2").innerHTML="";
     for (var i=0;i<CONTACTS.length;i++){
-    	document.getElementById("cont2").innerHTML+="<li onclick='dell2("+i+"")'>"+CONTACTS[i].name.formatted+"</li>";
+    	document.getElementById("cont2").innerHTML+="<li onclick='dell2("+i+")'>"+CONTACTS[i].name.formatted+"</li>";
     }
     $( "#cont2" ).listview( "refresh" );
 }
