@@ -43,7 +43,9 @@ function add(){
 	name.givenName = document.getElementById("text1").value;
 	name.familyName = document.getElementById("text2").value;
 	contact.name = name;
-	contact.phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel").value, false);
+	var phoneNumbers=[];
+	phoneNumbers[0]=new ContactField('mobile', document.getElementById("tel").value, true);
+	contact.phoneNumbers=phoneNumbers;
 	// save to device
 	contact.save(onSuccess2,onError);
 	
