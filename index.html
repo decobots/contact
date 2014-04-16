@@ -40,7 +40,6 @@ function view(contacts) {
 	    //	document.getElementById("cont").innerHTML+="<br>";
 	}
 	$( "#cont" ).listview( "refresh" );
-	$( "#set" ).collapsibleset( "refresh" );
 }
 var CONTACTS;
 function add(){
@@ -78,6 +77,7 @@ function onSuccess2(contact) {
     alert("Save Success");
     $( "#set2" ).collapsibleset( "disable" );
     $( "#set1" ).collapsibleset( "enable" );
+    $( "#set" ).collapsibleset( "refresh" );
 }
 
 function onError(contactError) {
