@@ -76,6 +76,8 @@ function dell2(i){
 
 function onSuccess2(contact) {
     alert("Save Success");
+    $( "#set2" ).collapsibleset( "disable" );
+    $( "#set1" ).collapsibleset( "enable" );
 }
 
 function onError(contactError) {
@@ -95,13 +97,13 @@ function onError(contactError) {
 
 	<div role="main" class="ui-content">
 		
-		<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-corners="false">
-		    <div data-role="collapsible" data-collapsed-icon="bullets" id="set">
+		<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-corners="false" id="set">
+		    <div data-role="collapsible" data-collapsed-icon="bullets" id="set1">
 		        <h3 id="But1">Имеющиеся контакты</h3>
 		        <ul data-role="listview"id="cont">
 		        </ul>
 		    </div>
-		    <div data-role="collapsible" data-collapsed-icon="plus">
+		    <div data-role="collapsible" data-collapsed-icon="plus" id="set2">
 		        <h3>Добавить контакт</h3>
 			<label for="text1">Имя:</label>
 			<input type="text" name="text-basic" id="text1" value="">
@@ -113,7 +115,7 @@ function onError(contactError) {
 			<input type="tel" name="tel" id="tel" value="">
 			<button id="But2" data-icon="plus">Добавить контакт</button>
 		    </div>
-		    <div data-role="collapsible" data-collapsed-icon="delete">
+		    <div data-role="collapsible" data-collapsed-icon="delete" id="set3">
 		        <h3 id="But3">Удалить</h3>
 		   	<ul data-role="listview"id="cont2">
 		        </ul>
